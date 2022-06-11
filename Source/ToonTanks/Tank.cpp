@@ -13,7 +13,7 @@ ATank::ATank() {
 
 void ATank::Move(float Value)
 {
-	UE_LOG(LogTemp, Warning, TEXT("Current Value %f"), Value);
+	AddActorLocalOffset(FVector(Value, 0.f, 0.f));
 }
 
 void ATank::SetupPlayerInputComponent(UInputComponent* PlayerInputComponent)
