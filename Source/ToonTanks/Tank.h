@@ -24,5 +24,7 @@ private:
 	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = "Components", meta = (AllowPrivateAccess = "true"))
 	class UCameraComponent* Camera;
 	void Move(float Value);
+	UPROPERTY(EditAnywhere)
+	float Speed = 1.f;
 
 };
