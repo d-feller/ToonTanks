@@ -21,10 +21,17 @@ public:
 private:
 	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = "Components", meta = (AllowPrivateAccess = "true"))
 	class USpringArmComponent* SpringArm;
+
 	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = "Components", meta = (AllowPrivateAccess = "true"))
 	class UCameraComponent* Camera;
-	void Move(float Value);
+
 	UPROPERTY(EditAnywhere)
 	float Speed = 1.f;
+
+	UPROPERTY(EditAnywhere)
+	float TurnRate = 1.f;
+
+	void Move(float Value);
+	void Turn(float Value);
 
 };

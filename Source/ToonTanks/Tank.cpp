@@ -16,10 +16,17 @@ void ATank::SetupPlayerInputComponent(UInputComponent* PlayerInputComponent)
 {
 	Super::SetupPlayerInputComponent(PlayerInputComponent);
 	PlayerInputComponent->BindAxis(TEXT("MoveForward"), this, &ATank::Move);
+	PlayerInputComponent->BindAxis(TEXT("Turn"), this, &ATank::Turn);
 }
 
 void ATank::Move(float Value)
 {
 	float X = Value * UGameplayStatics::GetWorldDeltaSeconds(this) * Speed;
-	AddActorLocalOffset(FVector(X, 0.f, 0.f));
+	AddActorLocalOffset(FVector(X, 0.f, 0.f), true);
+}
+
+void ATank::Turn(float Value)
+{
+	float Yaw = Value * UGameplayStatics::GetWorldDeltaSeconds(this) * TurnRate;
+	AddActorLocalRotation(FRotator(0.f, Yaw, 0.f));
 }
